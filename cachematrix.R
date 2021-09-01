@@ -12,10 +12,7 @@
 ## It does nothing except set and get the matrix and its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-        ##initialize the inverse matrix
         invMatrix <- NULL
-        
-        #define the set function for the matrix
         set <- function(y) {
                 x <<- y
                 invMatrix <<- NULL
@@ -23,17 +20,17 @@ makeCacheMatrix <- function(x = matrix()) {
         
         ##define the return matrix object by defining it as get
         get <- function() {
-                x ##return special matrix
+                x 
         }
         
         ##setting the inverse matrix 
         setInvMatrix <- function(invM){
-                invMatrix <<- invM ##assign the inverse matrix to the environment var
+                invMatrix <<- invM 
         } 
         
         ##define the function for returning the inverse matrix
         getInvMatrix <- function(){
-                invMatrix ##the environment var inverse matrix is return
+                invMatrix 
         }
         
         ##put all defined function into a list for future call within the environment
@@ -69,7 +66,6 @@ cacheSolve <- function(x, ...) {
         data <- x$get()
         invM <- solve(data, ...)
         
-        # sets the value of the inverse in the cache via the setinv function.
         x$setInvMatrix(invM)
         
         ## Return a matrix that is the inverse of 'x'
